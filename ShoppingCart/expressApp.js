@@ -89,6 +89,18 @@ app.get("/cart/:id", (req, res) => {
         ...product,
         totalPrice: product.price * product.quantity
     });
+
+     // Calculate total price
+    const totalPrice = product.price * product.quantity;
+
+    res.status(200).json({
+        id: product.id,
+        productName: product.productName,
+        price: product.price,
+        quantity: product.quantity,
+        category: product.category,
+        totalPrice: totalPrice
+    });
 });
 
 // POST: Add a new product
